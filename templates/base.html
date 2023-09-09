@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div>
+      <header>
+          <div class="nav-left">
+              <h1><a href="{% url 'home' %}">IT Creative</a></h1>
+          </div>
+          <div class="nav-righ">
+              <y><a href="{% url 'post_new' %}" style="--color: #FFFFFF"><span>New Post</span><i></i></a></y>
+              <y><a href="{% url 'soat' %}" style="--color: #FFFFFF"><span>Joriy soat</span><i></i></a></y>
+          </div>
+      </header>
+        {% if user.is_authenticated %}
+            <p>Xush kelibsiz, {{ user.username }}!</p>
+            <p><a href="{% url 'logout' %}">Saytdan chiqish</a></p>
+        {% else %}
+            <p>
+                <a href="{% url 'login' %}">Sign in</a> |
+                <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+
+            </p>
+
+        {% endif %}
+    <div class="containers">
+        <div>
+            <y>
+              <a href="{% url 'contact' %}" style="--color: #12d833">
+                <span>Tel raqam</span>
+                <i></i>
+              </a>
+            </y>
+          </div>
+          
+          <div>  
+            <y>
+              <a href="{% url 'instagram' %}" style="--color: #ff1867">
+                <span>Instagram</span>
+                <i></i>
+              </a>
+            </y>  
+          </div>
+          
+          <div>
+            <y>
+              <a href="{% url 'telegram' %}" style="--color: #1e9bff">
+                <span>Telegram</span>
+                <i></i>
+              </a>
+            </y>
+          </div>
+          
+          <div>
+            <y>
+              <a href="{% url 'facebook' %}" style="--color: #128fd8" >
+                <span>Facebook</span>
+                <i></i>  
+              </a>
+            </y>
+          </div>
+        {% block content %}
+        {% endblock content %}
+      </div>
+</body>
+</html>
