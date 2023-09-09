@@ -3,3 +3,4 @@ Django
 django-environ==0.11.1
 gunicorn==21.2.0
 psycopg2-binary==2.9.7
+whitenoise
