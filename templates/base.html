@@ -14,20 +14,21 @@
     <div>
       <header>
           <div class="nav-left">
+            
               <h1><a href="{% url 'home' %}">IT Creative</a></h1>
           </div>
           <div class="nav-righ">
               <y><a href="{% url 'post_new' %}" style="--color: #FFFFFF"><span>New Post</span><i></i></a></y>
-              <y><a href="{% url 'soat' %}" style="--color: #FFFFFF"><span>Joriy soat</span><i></i></a></y>
-          </div>
+              <y><a href="{% url 'soat' %}" style="--color: #FFFFFF"><span>Current hour</span><i></i></a></y>
+          </div> 
       </header>
         {% if user.is_authenticated %}
-            <p>Xush kelibsiz, {{ user.username }}!</p>
-            <p><a href="{% url 'logout' %}">Saytdan chiqish</a></p>
+            <p>Welcome, {{ user.username }}!</p>
+            <!-- <p><a href="{% url 'logout' %}">Exit the site</a></p> -->
         {% else %}
             <p>
-                <a href="{% url 'login' %}">Sign in</a> |
-                <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+                <!-- <a href="{% url 'login' %}">Sign in</a> |
+                <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a> -->
 
             </p>
 
@@ -36,7 +37,7 @@
         <div>
             <y>
               <a href="{% url 'contact' %}" style="--color: #12d833">
-                <span>Tel raqam</span>
+                <span>Tel/raqam</span>
                 <i></i>
               </a>
             </y>
@@ -73,3 +74,5 @@
       </div>
 </body>
 </html>
+
+

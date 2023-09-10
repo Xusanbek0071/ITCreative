@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
-
+{% block title %}Bosh sahifa{% endblock title %}
 {% block content %}
-    {% for post in object_list %}
-        <div class="post_entry">
-            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.body | slice:":100" }}...</p>
-            
-        </div>
-
-
-        
-    {% endfor %}
+    {% if user.is_authenticated %}
+        Welcome {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Exit the site</a></p>
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Sign in</a> |
+        <a href="{% url 'signup' %}">Sign up</a>
+    {% endif %}
 {% endblock content %}
